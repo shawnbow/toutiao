@@ -21,6 +21,7 @@
   "scripts": {
     "build:release": "rm -rf dist && tsc -p ./tsconfig.release.json",
     "build": "rm -rf dist && tsc -p ./tsconfig.json",
+    "deploy": "rm -rf dist && tsc -p ./tsconfig.release.json && scp -r ./dist root@bothost:/root/toutiao/",
     "start": "ts-node ./src/index.ts"
   },
   "dependencies": {
