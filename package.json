@@ -1,14 +1,12 @@
 {
-  "name": "toutiao",
-  "version": "1.0.0",
+  "name": "toutiaobot",
+  "version": "0.0.1",
   "author": "Shawn Bow <shawnbow81@gmail.com>",
   "description": "News Bot of Telegram",
   "keywords": [
     "Telegram",
     "Bot",
-    "EOS",
-    "BTC",
-    "ETH"
+    "News"
   ],
   "license": "MIT",
   "repository": {
@@ -16,21 +14,16 @@
     "url": "https://github.com/shawnbow/toutiao"
   },
   "bin": {
-    "eosio-miner": "dist/index.js"
+    "toutiaobot": "dist/index.js"
   },
   "scripts": {
-    "build:release": "rm -rf dist && tsc -p ./tsconfig.release.json",
     "build": "rm -rf dist && tsc -p ./tsconfig.json",
-    "deploy": "rm -rf dist && tsc -p ./tsconfig.release.json && scp -r ./dist root@bothost:/root/toutiao/",
+    "deploy": "yarn build && scp -r ./dist root@bothost:/root/toutiao/",
     "start": "ts-node ./src/index.ts"
   },
   "dependencies": {
-    "@types/figlet": "^1.2.0",
-    "@types/yargs": "^15.0.0",
     "chalk": "^3.0.0",
-    "eos-endpoint": "^2.0.1",
-    "eosjs": "^20.0.3",
-    "eosjs-ecc": "^4.0.7",
+    "eosio-helper": "^0.0.7",
     "figlet": "^1.2.4",
     "node-fetch": "^2.6.0",
     "telegraf": "^3.35.0",
@@ -39,6 +32,8 @@
   "devDependencies": {
     "@types/node": "^13.1.6",
     "@types/node-fetch": "^2.5.4",
+    "@types/figlet": "^1.2.0",
+    "@types/yargs": "^15.0.0",
     "ts-node": "^8.6.1",
     "typescript": "^3.7.4"
   }
